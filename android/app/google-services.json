@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1089624743526",
+    "firebase_url": "https://devfest-nyeri.firebaseio.com",
+    "project_id": "devfest-nyeri",
+    "storage_bucket": "devfest-nyeri.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089624743526:android:848baa6e0d92eac7",
+        "android_client_info": {
+          "package_name": "ninja.iampato.devfest19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089624743526-19qmj1g3u9jf9k3gvi7o8rd8460ita1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEPEeBlJY_89my-GjYyI9T0c7d1VDl-OQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089624743526-19qmj1g3u9jf9k3gvi7o8rd8460ita1j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
