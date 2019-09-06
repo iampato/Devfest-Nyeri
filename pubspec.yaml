@@ -14,9 +14,11 @@ dependencies:
   flutter_bloc: ^0.21.0
   font_awesome_flutter: any
   google_sign_in: ^4.0.1+1
-  cloud_firestore: ^0.9.7
+  cloud_firestore: any
   equatable: ^0.2.0
   firebase_auth: ^0.8.1+4
+  image_picker: any
+  firebase_storage: any
 
 dev_dependencies:
   flutter_test:
@@ -24,7 +26,7 @@ dev_dependencies:
 
 
 flutter:
-  uses-material-design: false
+  uses-material-design: true
   assets:
     - assets/
     - assets/images/
