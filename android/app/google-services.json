@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1089624743526:android:848baa6e0d92eac7",
+        "mobilesdk_app_id": "1:1089624743526:android:f4209f63bd757dd06917a7",
         "android_client_info": {
           "package_name": "ninja.iampato.devfest19"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1089624743526-5q7hslec72lb5t4a68qbvdfcetbask5f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ninja.iampato.devfest19",
+            "certificate_hash": "ec5e8e65495056f818975009e957f7f0482b451a"
+          }
+        },
         {
           "client_id": "1089624743526-19qmj1g3u9jf9k3gvi7o8rd8460ita1j.apps.googleusercontent.com",
           "client_type": 3
