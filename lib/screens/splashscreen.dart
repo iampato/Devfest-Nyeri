@@ -124,7 +124,7 @@ class _ScreenContentState extends State<ScreenContent>
                     CircularProgressIndicator(),
                   ],
                 ),
-                backgroundColor: Colors.blue),
+                backgroundColor: Colors.green),
           );
       }
       if (state.isSuccess) {
