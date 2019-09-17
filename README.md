@@ -2,14 +2,14 @@
 
 DevFest Nyeri Mobile application, shows all the agendas, speakers and more features about the event.
 
-## Prerequistes
+## Prerequisites
 	-Flutter(dart)
 	-Bloc(State management)
 	-Firebase(auth,file Storage, firestore & analytics)
 
 ## Getting Started
 
-1. [Fork repository](https://github.com/Iampato/DevFest-Nyeri-App/fork) and clone your fork locally
+1. [Fork repository](https://github.com/Iampato/DevFest-Nyeri/fork) and clone your fork locally
 1. Install [Flutter 1.9.1](https://flutter.dev/docs/get-started/install)
 1. Install [Android Studio / IntelliJ / VSCode](https://flutter.dev/docs/development/tools/android-studio)
 1. [Preparing Release for Android](https://flutter.dev/docs/deployment/android)
