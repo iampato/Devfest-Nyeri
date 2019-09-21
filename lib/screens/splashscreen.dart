@@ -98,6 +98,11 @@ class _ScreenContentState extends State<ScreenContent>
 
   @override
   Widget build(BuildContext context) {
+    var deviceHeight = MediaQuery.of(context).size.height;
+    var deviceWidth = MediaQuery.of(context).size.width;
+    ScreenUtil.instance = ScreenUtil(width: deviceWidth, height: deviceHeight)
+      ..init(context);
+      
     return BlocListener<LoginBloc, LoginState>(listener: (context, state) {
       if (state.isFailure) {
         Scaffold.of(context)
