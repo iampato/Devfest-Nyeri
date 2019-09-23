@@ -102,7 +102,7 @@ class _ScreenContentState extends State<ScreenContent>
     var deviceWidth = MediaQuery.of(context).size.width;
     ScreenUtil.instance = ScreenUtil(width: deviceWidth, height: deviceHeight)
       ..init(context);
-      
+
     return BlocListener<LoginBloc, LoginState>(listener: (context, state) {
       if (state.isFailure) {
         Scaffold.of(context)
@@ -169,7 +169,8 @@ class _ScreenContentState extends State<ScreenContent>
                         textAlign: TextAlign.center,
                         softWrap: true,
                         style: TextStyle(
-                            fontSize: 40,
+                            fontSize:
+                                ScreenUtil(allowFontScaling: true).setSp(40),
                             fontFamily: "GoogleSans",
                             fontWeight: FontWeight.w600),
                       ),
@@ -186,8 +187,9 @@ class _ScreenContentState extends State<ScreenContent>
                         padding: const EdgeInsets.all(5.0),
                         child: RaisedButton.icon(
                           label: Text('Sign in with Google',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 18)),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: ScreenUtil(allowFontScaling: true).setSp(18))),
                           color: Colors.red,
                           icon: Icon(FontAwesomeIcons.google,
                               color: Colors.white),

@@ -41,7 +41,13 @@ class MyApp extends StatelessWidget {
         title: "Devfest Nyeri",
         // if state.themeData yields null the opeartion after ?? themedata
         // will be light and the swatch color red
-        theme: state.themeData ?? ThemeData(primarySwatch: Colors.red),
+        theme: ThemeData(
+            fontFamily: "GoogleSans",
+            brightness:
+                themeBloc.darkModeOn ? Brightness.dark : Brightness.light,
+            primarySwatch: themeBloc.darkModeOn ? Colors.redAccent : Colors.red,
+            primaryColor:
+                themeBloc.darkModeOn ? Colors.redAccent : Colors.black54),
         home: BlocBuilder<AuthBloc, AuthState>(builder: (context, state) {
           if (state is Unauthenticated) {
             return SplashScreen(userRepository: _userRepository);
