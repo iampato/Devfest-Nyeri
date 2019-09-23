@@ -1,4 +1,4 @@
-# devfest19 Nyeri
+# GDG Devfest Nyeri
 
 DevFest Nyeri Mobile application, shows all the agendas, speakers and more features about the event.
 
