@@ -38,7 +38,7 @@ List<Session> sessionData = [
     presenter: "Job Getabu",
     leadingBgColor: Colors.green,
     leadingIcon: FontAwesomeIcons.mobileAlt,
-    imagePath: "assets/images/banner_dark.png",
+    imagePath: "assets/images/splash.jpg",
     count: 140,
     description:'''DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building & learning about Google’s technologies. Each DevFest is inspired by and uniquely tailored to the needs of the developer community and region that hosts it.''' +
                 '''DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building & learning about Google’s technologies. Each DevFest is inspired by and uniquely tailored to the needs of the developer community and region that hosts it.'''
@@ -138,7 +138,7 @@ List<Session> sessionData = [
     presenter: "Valentine Rutto",
     leadingBgColor: Colors.green,
     leadingIcon: FontAwesomeIcons.mobileAlt,
-    imagePath: "assets/images/banner_dark.png",
+    imagePath: "assets/images/splash.jpg",
     count: 140,
     description:'''DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building & learning about Google’s technologies. Each DevFest is inspired by and uniquely tailored to the needs of the developer community and region that hosts it.''' +
                 '''DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building & learning about Google’s technologies. Each DevFest is inspired by and uniquely tailored to the needs of the developer community and region that hosts it.'''
