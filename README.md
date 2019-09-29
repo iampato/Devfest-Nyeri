@@ -5,7 +5,7 @@ DevFest Nyeri Mobile application, shows all the agendas, speakers and more featu
 ## Demo
 <img src="https://github.com/Iampato/Devfest-Nyeri/blob/master/screenshots/devfestonline-video-cuttercom.gif"/>
 
-## Prerequisites
+## Tech Stack:
 	-Flutter(dart)
 	-Bloc(State management)
 	-Firebase(auth,file Storage, firestore & analytics)
