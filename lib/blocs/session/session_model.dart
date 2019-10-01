@@ -5,20 +5,20 @@ import 'session_data.dart';
 class Session {
   final String id;
   final String name;
-  final String speaker;
+  final int count;
+  final String presenter;
   final String imagepath;
   final String location;
   final DateTime startTime;
-  final int count;
   final String description;
   final String type;
 
   Session(
       {this.id,
-      this.name = "",
+      this.name = '',
       this.count = 0,
+      this.presenter = '',	
       this.imagepath,
-      this.speaker,
       this.location,
       this.startTime,
       this.description,
@@ -26,14 +26,15 @@ class Session {
 
   SessionEntity toEntity() {
     return SessionEntity(
-        id, name, speaker, imagepath, location, startTime, count, description,type);
+        id, name,count, presenter, imagepath, location, startTime, description,type);
   }
 
   static Session fromEntity(SessionEntity entity) {
     return Session(
         id: entity.id,
         name: entity.name,
-        speaker: entity.speaker,
+	count: entity.count,
+        presenter: entity.presenter,
         imagepath: entity.imagePath,
         location: entity.location,
         startTime: entity.startTime,

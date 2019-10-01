@@ -9,7 +9,7 @@ abstract class SessionRepository {
 
 }
 class FirebaseTodosRepository implements SessionRepository {
-  final sessionCollection = Firestore.instance.collection('Session');
+  final sessionCollection = Firestore.instance.collection('sessions');
 
   @override
   Stream<List<Session>> sessions() {

@@ -4,22 +4,22 @@ import 'package:equatable/equatable.dart';
 class SessionEntity extends Equatable {
   final String id;
   final String name;
-  final String speaker;
+  final int count;
+  final String presenter;
   final String imagePath;
   final String location;
   final DateTime startTime;
-  final int count;
   final String description;
   final String type;
 
   SessionEntity(
     this.id,
     this.name,
-    this.speaker,
+    this.count,
+    this.presenter,
     this.imagePath,
     this.location,
     this.startTime,
-    this.count,
     this.description,
     this.type
   );
@@ -28,11 +28,11 @@ class SessionEntity extends Equatable {
     return SessionEntity(
       snap.documentID,
       snap.data['name'],
-      snap.data['speaker'],
+      snap.data['count'],
+      snap.data['presenter'],
       snap.data['image'],
       snap.data['location'],
-      snap.data['startTime'],
-      snap.data['count'],
+      snap.data['startTime'].toDate(),
       snap.data['description'],
       snap.data['type']
     );
@@ -40,6 +40,6 @@ class SessionEntity extends Equatable {
    
   @override
   String toString() {
-    return 'SessionEntity {name: $name, speaker: $speaker, Location: $location, Count: $count}';
+    return 'SessionEntity {name: $name, presenter: $presenter, Location: $location, Count: $count}';
   }
 }
