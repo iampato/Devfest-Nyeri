@@ -40,8 +40,8 @@ Everyone is welcome to contribute code via pull requests and to file issues on G
 
 ## License
 
-Project is published under the [MIT license](/LICENSE.md).
-Feel free to clone and modify repo as you want, but don't forget to add reference to authors :)
+Project is published under the [MIT license].
+
 
 ## Contributors
 
