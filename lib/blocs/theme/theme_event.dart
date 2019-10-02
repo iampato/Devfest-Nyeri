@@ -1,25 +1,47 @@
-import 'package:devfest19/blocs/theme/app_theme.dart';
+import 'dart:async';
 import 'package:devfest19/config.dart';
-import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import './bloc.dart';
 
 @immutable
-abstract class ThemeEvent extends Equatable {
-  ThemeEvent([List props = const <dynamic>[]]) : super(props);
+abstract class ThemeEvent {
+  Future<ThemeState> applyAsync({ThemeState currentState, ThemeBloc bloc});
 }
 
-class ThemeChanged extends ThemeEvent {
-  final appTheme theme;
+class DarkModeEvent extends ThemeEvent {
+  final bool darkOn;
+  DarkModeEvent(this.darkOn);
+  @override
+  String toString() => 'DarkModeEvent';
 
-
-  ThemeChanged({this.theme}) : super([theme]){
-    if (appThemeData[this.theme] == appThemeData[appTheme.lightTheme]) {
-      Config.preferences.setBool(Config.darkModePreference, false);
-    } else if (appThemeData[this.theme] == appThemeData[appTheme.darkTheme]) {
-      Config.preferences.setBool(Config.darkModePreference, true);
+  @override
+  Future<ThemeState> applyAsync(
+      {ThemeState currentState, ThemeBloc bloc}) async {
+    try {
+      bloc.darkMode = darkOn;
+      Config.preferences.setBool(Config.darkModePreference,darkOn);
+      return InThemeState();
+    } catch (_, stackTrace) {
+      print('$_ $stackTrace');
+      return new ErrorThemeState(_?.toString());
     }
   }
-  
+}
+
+class LoadThemeEvent extends ThemeEvent {
   @override
-  String toString() => 'ThemeChangedEvent';
+  String toString() => 'LoadThemeEvent';
+
+  @override
+  Future<ThemeState> applyAsync(
+      {ThemeState currentState,ThemeBloc bloc}) async {
+    try {
+      await Future.delayed(new Duration(seconds: 2));
+
+      return new InThemeState();
+    } catch (_, stackTrace) {
+      print('$_ $stackTrace');
+      return new ErrorThemeState(_?.toString());
+    }
+  }
 }
