@@ -17,9 +17,9 @@ class SpeakerData extends Equatable {
       snap.documentID,
       snap.data['name'],
       snap.data['imageUrl'],
-      snap.data['occupation'],
+      snap.data['Occupation'],
       snap.data['workplace'],
-      snap.data['expertise'],
+      snap.data['skills'],
     );
   }
 }

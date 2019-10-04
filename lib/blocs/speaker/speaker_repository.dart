@@ -7,8 +7,8 @@ abstract class SpeakerRepository {
   Stream<List<Speaker>> speakers();
 }
 
-class FirebaseTodosRepository implements SpeakerRepository {
-  final speakerCollection = Firestore.instance.collection('speaker');
+class FirebaseSpeakerRepository implements SpeakerRepository {
+  final speakerCollection = Firestore.instance.collection('speakers');
 
   @override
   Stream<List<Speaker>> speakers() {
