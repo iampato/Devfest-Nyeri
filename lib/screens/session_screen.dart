@@ -20,7 +20,7 @@ class _SessionScreenState extends State<SessionScreen> {
       appBar: AppBar(title: Text("Sessions"), elevation: 0.0),
       body: BlocProvider<SessionBloc>(
         builder: (context) {
-          return SessionBloc(sessionRepository: FirebaseTodosRepository())
+          return SessionBloc(sessionRepository: FirebaseSessionRepository())
             ..dispatch(LoadingSession());
         },
         child: BlocBuilder<SessionBloc, SessionState>(

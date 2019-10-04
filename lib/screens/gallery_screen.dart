@@ -21,19 +21,27 @@ class GalleryScreen extends StatelessWidget {
               itemCount: images.length,
               itemBuilder: (BuildContext context, int index) {
                 final image = images[index];
-                return GestureDetector(
-                  child: GridTile(
-                    child: CachedNetworkImage(
-                      imageUrl: image.imagepath,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) {
-                      return Detail(imageUrl: image.imagepath);
-                    }));
-                  },
-                );
+                return Hero(
+                    tag: image.imagepath,
+                    child: GestureDetector(
+                      child: Card(
+                        child: GridTile(
+                          child: CachedNetworkImage(
+                            imageUrl: image.imagepath,
+                            placeholder: (context, url) =>
+                                Center(child: CircularProgressIndicator()),
+                            errorWidget: (context, url, error) =>
+                                Icon(Icons.error),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) {
+                          return Detail(imageUrl: image.imagepath);
+                        }));
+                      },
+                    ));
               },
             ),
           );
@@ -90,20 +98,21 @@ class Detail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GestureDetector(
-        child: Center(
-          child: Hero(
-            tag: 'imageHero',
+      body: Hero(
+        tag: imageUrl,
+        child: GestureDetector(
+          child: Center(
             child: CachedNetworkImage(
               imageUrl: imageUrl,
-              placeholder: (context, url) => CircularProgressIndicator(),
+              placeholder: (context, url) =>
+                  Center(child: CircularProgressIndicator()),
               errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           ),
+          onTap: () {
+            Navigator.pop(context);
+          },
         ),
-        onTap: () {
-          Navigator.pop(context);
-        },
       ),
     );
   }

@@ -15,7 +15,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<SessionBloc>(
         builder: (context) =>
-            SessionBloc(sessionRepository: FirebaseTodosRepository())..dispatch(LoadingSession()),
+            SessionBloc(sessionRepository: FirebaseSessionRepository())..dispatch(LoadingSession()),
         child:
             BlocBuilder<SessionBloc, SessionState>(builder: (context, state) {
           final session = (state as SessionLoaded)
