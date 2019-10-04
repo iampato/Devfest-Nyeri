@@ -1,6 +1,6 @@
 name: devfest19
 description: A new Flutter project.
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -12,13 +12,20 @@ dependencies:
   bubble_bottom_bar: ^1.2.0
   bloc: ^0.15.0
   flutter_bloc: ^0.21.0
-  font_awesome_flutter: any
-  google_sign_in: ^4.0.1+1
-  cloud_firestore: any
   equatable: ^0.2.0
-  firebase_auth: ^0.8.1+4
-  image_picker: any
-  firebase_storage: any
+  font_awesome_flutter: 8.5.0 
+  google_sign_in: ^4.0.7
+  cloud_firestore: 0.12.9+3
+  firebase_auth: ^0.14.0+5
+  firebase_storage: ^3.0.6 
+  firebase_core: ^0.4.0+9 
+  image_picker: 0.6.1+4
+  flutter_screenutil: ^0.6.0
+  shared_preferences: ^0.5.3+4
+  share: ^0.6.2+1
+  cached_network_image: ^1.1.1
+  intl: 
+  url_launcher:
 
 dev_dependencies:
   flutter_test:
