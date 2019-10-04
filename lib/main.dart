@@ -1,12 +1,13 @@
 import 'package:devfest19/blocs/auth/bloc.dart';
+import 'package:devfest19/blocs/gallery/bloc.dart';
+import 'package:devfest19/blocs/gallery/gallery_repository.dart';
 import 'package:devfest19/blocs/theme/bloc.dart';
 import 'package:devfest19/config.dart';
-import 'package:devfest19/screens/mainscreen.dart';
-import 'package:devfest19/screens/splashscreen.dart';
+import 'package:devfest19/main_screen.dart';
+import 'package:devfest19/screens/splash_screen.dart';
 import 'package:devfest19/blocs/user_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:devfest19/blocs/session/bloc.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -14,7 +15,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async {
   Config.preferences = await SharedPreferences.getInstance();
   BlocSupervisor.delegate = AuthBlocDelegate();
-  print(Config.preferences.getBool(Config.darkModePreference).toString());
   final UserRepository userRepository = UserRepository();
   runApp(MultiBlocProvider(providers: [
     BlocProvider<AuthBloc>(
@@ -27,7 +27,7 @@ void main() async {
   ], child: MyApp(userRepository: userRepository)));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   final UserRepository _userRepository;
   MyApp({Key key, @required UserRepository userRepository})
       : assert(userRepository != null),
@@ -35,48 +35,58 @@ class MyApp extends StatelessWidget {
         super(key: key);
 
   @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  ThemeBloc themeBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    themeBloc = ThemeBloc();
+    themeBloc.darkMode =
+        Config.preferences.getBool(Config.darkModePreference) ?? false;
+  }
+
+  @override
+  void dispose() {
+    themeBloc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ThemeBloc,ThemeState>(builder: (context, state) {
+    return BlocBuilder<ThemeBloc, ThemeState>(builder: (context, state) {
       return MaterialApp(
-        title: "Devfest Nyeri",
-        // if state.themeData yields null the opeartion after ?? themedata
-        // will be light and the swatch color red
+        title: "DevFest Nyeri",
         theme: ThemeData(
-            fontFamily: "GoogleSans",
-            brightness:
-                themeBloc.darkModeOn ? Brightness.dark : Brightness.light,
-            primarySwatch: themeBloc.darkModeOn ? Colors.redAccent : Colors.red,
-            primaryColor:
-                themeBloc.darkModeOn ? Colors.redAccent : Colors.black54),
+          fontFamily: "GoogleSans",
+          brightness: themeBloc.darkMode ? Brightness.dark : Brightness.light,
+          primarySwatch: Colors.red,
+          primaryColor: themeBloc.darkMode ? Colors.black : Colors.red,
+          buttonTheme: Theme.of(context).buttonTheme.copyWith(
+              colorScheme: themeBloc.darkMode
+                  ? ColorScheme.dark()
+                  : ColorScheme.light()),
+        ),
         home: BlocBuilder<AuthBloc, AuthState>(builder: (context, state) {
           if (state is Unauthenticated) {
-            return SplashScreen(userRepository: _userRepository);
+            return SplashScreen(userRepository: widget._userRepository);
           }
           if (state is Authenticated) {
-            return MultiBlocProvider(providers: [
-              BlocProvider<SessionBloc>(
+            return BlocProvider<GalleryBloc>(
                 builder: (context) {
-                  return SessionBloc(
-                      sessionRepository: FirebaseTodosRepository())
-                    ..dispatch(LoadingSession());
+                  return GalleryBloc(
+                      galleryRepository: FirebaseGalleryRepository())
+                    ..dispatch(LoadingGallery());
                 },
-              ),
-            ], child: MainScreen());
+                child: MainScreen());
           }
-          return SplashScreen(userRepository: _userRepository);
+          return Container();
         }),
       );
     });
   }
 }
 
-/*@override
-  Widget build(BuildContext context) {
-    return CupertinoApp(
-      title: 'Devfest Nyeri',
-      theme: CupertinoThemeData(primaryColor: CupertinoColors.destructiveRed),
-      home: SplashScreen(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-  */
