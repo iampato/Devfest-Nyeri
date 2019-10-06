@@ -3,6 +3,7 @@
 DevFest Nyeri Mobile application, shows all the agendas, speakers and more features about the event.
 
 ## Demo
+<style>
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -18,6 +19,7 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+</style>
 <table>
   <tr>
     <th>Demo</th>
