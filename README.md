@@ -3,9 +3,36 @@
 DevFest Nyeri Mobile application, shows all the agendas, speakers and more features about the event.
 
 ## Demo
-<img src="https://github.com/Iampato/Devfest-Nyeri/blob/master/screenshots/devfestonline-video-cuttercom.gif"/>
-<img src="https://github.com/Iampato/Devfest-Nyeri/blob/master/screenshots/Screenshot_20190930-191849.png"/>
-<img src="https://github.com/Iampato/Devfest-Nyeri/blob/master/screenshots/Screenshot_20190930-191902.png"/>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+<table>
+  <tr>
+    <th>Demo</th>
+    <th>Dark Mode</th>
+    <th>Light theme</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Iampato/Devfest-Nyeri/blob/master/screenshots/devfestonline-video-cuttercom.gif"/></td>
+    <td><img src="https://github.com/Iampato/Devfest-Nyeri/blob/master/screenshots/Screenshot_20190930-191849.png"/></td>
+    <td><img src="https://github.com/Iampato/Devfest-Nyeri/blob/master/screenshots/Screenshot_20190930-191902.png"/></td>
+</tr>
+</table>
+
+
+
 ## Tech Stack:
 	-Flutter(dart)
 	-Bloc(State management)
