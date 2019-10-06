@@ -3,23 +3,7 @@
 DevFest Nyeri Mobile application, shows all the agendas, speakers and more features about the event.
 
 ## Demo
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
 <table>
   <tr>
     <th>Demo</th>
