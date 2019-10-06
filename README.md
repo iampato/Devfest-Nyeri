@@ -6,16 +6,16 @@ DevFest Nyeri Mobile application, shows all the agendas, speakers and more featu
 
 <table>
   <tr>
-    <th>Demo</th>
     <th>Dark Mode</th>
     <th>Light theme</th>
   </tr>
   <tr>
-    <td><img height="350px" width="800px" src="https://github.com/Iampato/Devfest-Nyeri/blob/master/screenshots/devfestonline-video-cuttercom.gif"/></td>
+    
     <td><img src="https://github.com/Iampato/Devfest-Nyeri/blob/master/screenshots/Screenshot_20190930-191849.png"/></td>
     <td><img src="https://github.com/Iampato/Devfest-Nyeri/blob/master/screenshots/Screenshot_20190930-191902.png"/></td>
 </tr>
 </table>
+<img src="https://github.com/Iampato/Devfest-Nyeri/blob/master/screenshots/devfestonline-video-cuttercom.gif"/>
 
 
 
