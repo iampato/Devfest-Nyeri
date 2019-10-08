@@ -53,7 +53,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       builder: (BuildContext context,
                           AsyncSnapshot<FirebaseUser> snapshot) {
                         if (snapshot.hasData) {
-                          if (snapshot.connectionState == ConnectionState.done) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
                             return Text(
                               snapshot.data.displayName,
                               style: TextStyle(
@@ -94,7 +95,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.07),
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.07),
               child: FlatButton(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,7 +117,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Divider(),
             FlatButton(
               onPressed: () {
-                Share.share("Share this app.\nPlayStore - to come soon");
+                Share.share("Share this app.\nPlayStore - https://github.com/Iampato/Devfest-Nyeri/releases/download/1.0.1/app-armeabi-v7a-release.apk");
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -129,9 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             Divider(),
             FlatButton(
-              onPressed: () async{
-                await canLaunch("mailto:858wpwaweru@gmail.com");
-              },
+              onPressed: _launchURL("mailto:858wpwaweru@gmail.com"),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -144,9 +144,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             Divider(),
             FlatButton(
-              onPressed: () async {
-                await canLaunch("https://github.com/Iampato/Devfest-Nyeri");
-              },
+              onPressed: _launchURL("https://github.com/Iampato/Devfest-Nyeri"),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -178,5 +176,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       );
     });
+  }
+
+  _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
