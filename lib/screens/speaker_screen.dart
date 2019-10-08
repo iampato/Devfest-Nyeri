@@ -34,62 +34,61 @@ class SpeakerScreen extends StatelessWidget {
                 itemCount: speakers.length,
                 itemBuilder: (context, i) {
                   return Padding(
-                    padding: const EdgeInsets.only(top: 2.5),
+                    padding: const EdgeInsets.only(top: 2.5, left: 5, right: 5),
                     child: Column(
                       children: <Widget>[
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Flexible(
-                                flex: 1,
-                                child: ConstrainedBox(
-                                    constraints: BoxConstraints.expand(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.2,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.3,
-                                    ),
-                                    child: CachedNetworkImage(
-                                      imageUrl: speakers[i].imageUrl,
-                                      placeholder: (context, url) => Center(
-                                          child: CircularProgressIndicator()),
-                                      errorWidget: (context, url, error) =>
-                                          Icon(Icons.error),
-                                    )),
+                        Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                          ConstrainedBox(
+                              constraints: BoxConstraints.expand(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.2,
+                                width: MediaQuery.of(context).size.width * 0.3,
                               ),
-                              Flexible(
-                                flex: 3,
-                                child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Text(speakers[i].name,
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.w600)),
-                                      Opacity(
-                                        opacity: 0.8,
-                                        child: Text(
-                                          speakers[i].occupation+ " @ " +speakers[i].workPlace,
-                                          style: TextStyle(fontSize: 14),
-                                        ),
-                                      ),
-                                      Wrap(
-                                          spacing: 5.0,
-                                          alignment: WrapAlignment.spaceEvenly,
-                                          children: speakers[i]
-                                              .expertise
-                                              .map((f) => Chip(
-                                                  backgroundColor:
-                                                      randomColorGenerator(),
-                                                  label: Text(
-                                                    f,
-                                                  )))
-                                              .toList()),
-                                    ]),
-                              )
-                            ]),
+                              child: CachedNetworkImage(
+                                fit: BoxFit.cover,
+                                imageUrl: speakers[i].imageUrl ??
+                                    "https://lifesuccessforteens.com/wp-content/uploads/2019/07/Life-success-for-teens-1.jpg",
+                                placeholder: (context, url) =>
+                                    Center(child: CircularProgressIndicator()),
+                                errorWidget: (context, url, error) =>
+                                    Icon(Icons.error),
+                              )),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Text(speakers[i].name,
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w600)),
+                                  Opacity(
+                                    opacity: 0.8,
+                                    child: Text(
+                                      speakers[i].occupation +
+                                          " @ " +
+                                          speakers[i].workPlace,
+                                      style: TextStyle(fontSize: 14),
+                                    ),
+                                  ),
+                                  Wrap(
+                                      spacing: 5.0,
+                                      children: speakers[i]
+                                          .expertise
+                                          .map((f) => Chip(
+                                              backgroundColor:
+                                                  randomColorGenerator(),
+                                              label: Text(
+                                                f,
+                                              )))
+                                          .toList()),
+                                ]),
+                          )
+                        ]),
                         Divider()
                       ],
                     ),
