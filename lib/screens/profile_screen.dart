@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -131,7 +130,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             Divider(),
             FlatButton(
-              onPressed: _launchURL("mailto:858wpwaweru@gmail.com"),
+              onPressed:() async{
+                await launch("mailto:858wpwaweru@gmail.com?Subject=Devfest Feedback");
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -144,7 +145,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             Divider(),
             FlatButton(
-              onPressed: _launchURL("https://github.com/Iampato/Devfest-Nyeri"),
+              onPressed: () async{
+                await launch("https://github.com/Iampato/Devfest-Nyeri");
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -178,11 +181,4 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
   }
 
-  _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
 }
