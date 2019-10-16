@@ -58,26 +58,26 @@ class _ScreenContentState extends State<ScreenContent>
   void initState() {
     super.initState();
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 5))
+        AnimationController(vsync: this, duration: Duration(seconds: 2))
           ..addListener(() {
             setState(() {});
           })
           ..forward();
     _banner = Tween<Offset>(begin: Offset(0, 100), end: Offset.zero)
         .chain(
-            CurveTween(curve: Interval(0.3, 0.7, curve: Curves.easeOutCubic)))
+            CurveTween(curve: Interval(0.3, 0.7, curve: Curves.decelerate)))
         .animate(_controller);
     _welcomeText = Tween<Offset>(begin: Offset(0, 100), end: Offset.zero)
         .chain(
-            CurveTween(curve: Interval(0.4, 0.8, curve: Curves.easeOutCubic)))
+            CurveTween(curve: Interval(0.4, 0.8, curve: Curves.decelerate)))
         .animate(_controller);
     _googleButton = Tween<Offset>(begin: Offset(0, 100), end: Offset.zero)
         .chain(
-            CurveTween(curve: Interval(0.5, 0.9, curve: Curves.easeOutCubic)))
+            CurveTween(curve: Interval(0.5, 0.9, curve: Curves.decelerate)))
         .animate(_controller);
     _versionText = Tween<Offset>(begin: Offset(0, 100), end: Offset.zero)
         .chain(
-            CurveTween(curve: Interval(0.6, 1.0, curve: Curves.easeOutCubic)))
+            CurveTween(curve: Interval(0.6, 1.0, curve: Curves.decelerate)))
         .animate(_controller);
 
     _bannerOpacity =

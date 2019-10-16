@@ -60,6 +60,7 @@ class _MyAppState extends State<MyApp> {
     return BlocBuilder<ThemeBloc, ThemeState>(builder: (context, state) {
       return MaterialApp(
         title: "DevFest Nyeri",
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: "GoogleSans",
           brightness: themeBloc.darkMode ? Brightness.dark : Brightness.light,
@@ -89,4 +90,3 @@ class _MyAppState extends State<MyApp> {
     });
   }
 }
-
