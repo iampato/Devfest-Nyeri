@@ -2,6 +2,8 @@
 
 DevFest Nyeri Mobile application, shows all the agendas, speakers and more features about the event.
 
+[Download the apk here](https://github.com/Iampato/Devfest-Nyeri/releases/download/1.0.1/app-armeabi-v7a-release.apk)
+
 ## Demo
 
 <table>
